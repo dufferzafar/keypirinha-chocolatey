@@ -4,8 +4,6 @@ This is a package for the fast keystroke launcher keypirinha (http://keypirinha.
 
 It allows you to search & install packages via Chocolatey.
 
-## Screenshots
-
 ![Search for a particular package](https://i.imgur.com/QwRKPOJ.png)
 
 ![Install or open page of a package](https://i.imgur.com/PCLkhcm.png)
