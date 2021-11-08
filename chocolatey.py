@@ -9,7 +9,6 @@ import os
 import traceback
 import urllib.error
 import urllib.parse
-import ctypes
 import xml.etree.ElementTree as ET
 
 from enum import Enum
@@ -250,12 +249,10 @@ class Chocolatey(kp.Plugin):
         )
 
         if action and action.name() == self.ACTION.install.name:
-            cmd = " ".join(
+            args = " ".join(
                 ["-NoExit", "-Command", "& {choco install %s}" % item.target()]
             )
-            ctypes.windll.shell32.ShellExecuteW(
-                None, "runas", "powershell.exe", cmd, None, 1
-            )
+            kpu.shell_execute("powershell.exe", args, verb="runas")
 
         if action and action.name() == self.ACTION.open_project_url.name:
             kpu.web_browser_command(url=project_url, execute=True)
